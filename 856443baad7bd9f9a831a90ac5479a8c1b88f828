@@ -1,0 +1,7 @@
+{
+  "pr": "111",
+  "repository": "cloudfoundry/smbbroker",
+  "base_branch": "master",
+  "head_branch": "dependabot/go_modules/github.com/onsi/ginkgo-1.16.5",
+  "branch_tip": "856443baad7bd9f9a831a90ac5479a8c1b88f828"
+}
