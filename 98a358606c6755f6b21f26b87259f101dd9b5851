@@ -1,0 +1,7 @@
+{
+  "pr": "115",
+  "repository": "cloudfoundry/smbbroker",
+  "base_branch": "master",
+  "head_branch": "dependabot/go_modules/code.cloudfoundry.org/service-broker-store-0.26.0",
+  "branch_tip": "98a358606c6755f6b21f26b87259f101dd9b5851"
+}
