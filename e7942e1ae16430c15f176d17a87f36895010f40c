@@ -1,0 +1,7 @@
+{
+  "pr": "119",
+  "repository": "cloudfoundry/smbbroker",
+  "base_branch": "master",
+  "head_branch": "dependabot/go_modules/code.cloudfoundry.org/goshims-0.10.0",
+  "branch_tip": "e7942e1ae16430c15f176d17a87f36895010f40c"
+}
