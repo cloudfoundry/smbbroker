@@ -1,0 +1,7 @@
+{
+  "pr": "121",
+  "repository": "cloudfoundry/smbbroker",
+  "base_branch": "master",
+  "head_branch": "dependabot/go_modules/code.cloudfoundry.org/existingvolumebroker-0.62.0",
+  "branch_tip": "6632b2ae1ee74eb7d9b46731fff3cd099c2727f6"
+}
