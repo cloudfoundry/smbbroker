@@ -138,7 +138,6 @@ func configureCACert(logger lager.Logger, client *http.Client) {
 		}
 		clientTLSConf := &tls.Config{
 			RootCAs: certpool,
-			MinVersion: tls.VersionTLS12,
 		}
 
 		transport := &http.Transport{
