@@ -136,9 +136,10 @@ func configureCACert(logger lager.Logger, client *http.Client) {
 		if !ok {
 			logger.Fatal("appending certs from PEM", err)
 		}
+		// disable "G402 (CWE-295): TLS MinVersion too low. (Confidence: HIGH, Severity: HIGH)"
+		// #nosec G402 - Enforcing a MinVersion for TLS could break numerous existing systems
 		clientTLSConf := &tls.Config{
 			RootCAs: certpool,
-			MinVersion: tls.VersionTLS12,
 		}
 
 		transport := &http.Transport{
