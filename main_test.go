@@ -100,10 +100,14 @@ var _ = Describe("smbbroker Main", func() {
 		It("should timeout after 30 seconds", func() {
 			listenAddr := "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelNode())
 
+			hangForMoreThan30SecondsHandler := func(resp http.ResponseWriter, req *http.Request) {
+				time.Sleep(32 * time.Second)
+			}
+
 			credhubServer = ghttp.NewServer()
 			credhubServer.AppendHandlers(ghttp.CombineHandlers(
 				ghttp.VerifyRequest("GET", "/info"),
-				ghttp.RespondWith(100, "", http.Header{"X-Squid-Err": []string{"some-error"}}),
+				hangForMoreThan30SecondsHandler,
 			))
 
 			var args []string
@@ -133,7 +137,7 @@ var _ = Describe("smbbroker Main", func() {
 			planID             = "0da18102-48dc-46d0-98b3-7a4ff6dc9c54"
 			serviceOfferingID  = "9db9cca4-8fd5-4b96-a4c7-0a48f47c3bad"
 			serviceInstanceID  = "service-instance-id"
-			volmanRunner *ginkgomon.Runner
+			volmanRunner       *ginkgomon.Runner
 			process            ifrit.Process
 
 			credhubServer *ghttp.Server

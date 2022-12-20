@@ -11,7 +11,7 @@ check_ginkgo:
 	ginkgo version
 
 install_ginkgo:
-	GO111MODULE=off go get github.com/onsi/ginkgo/ginkgo
+	go install github.com/onsi/ginkgo/ginkgo@latest
 
 fmt:
 	go fmt ./...
