@@ -50,6 +50,7 @@ func NewStore(
 	uaaCACert string,
 	storeID string,
 ) Store {
+
 	if credhubURL != "" {
 		ch, err := credhub_shims.NewCredhubShim(credhubURL, credhubCACert, clientID, clientSecret, uaaCACert, &credhub_shims.CredhubAuthShim{})
 		if err != nil {
