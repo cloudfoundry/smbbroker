@@ -1,7 +1,7 @@
 module code.cloudfoundry.org/smbbroker
 
 require (
-	code.cloudfoundry.org/clock v1.0.0
+	code.cloudfoundry.org/clock v1.1.0
 	code.cloudfoundry.org/debugserver v0.0.0-20200131002057-141d5fa0e064
 	code.cloudfoundry.org/existingvolumebroker v0.85.0
 	code.cloudfoundry.org/goshims v0.13.0
@@ -12,7 +12,7 @@ require (
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.27.6
 	github.com/pivotal-cf/brokerapi v6.4.2+incompatible
-	github.com/tedsuo/ifrit v0.0.0-20191009134036-9a97d0632f00
+	github.com/tedsuo/ifrit v0.0.0-20230330192023-5cba443a66c4
 )
 
 require (
