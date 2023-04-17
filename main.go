@@ -1,30 +1,31 @@
 package main
 
 import (
-	"code.cloudfoundry.org/clock"
-	"code.cloudfoundry.org/debugserver"
-	"code.cloudfoundry.org/existingvolumebroker"
-	"code.cloudfoundry.org/existingvolumebroker/utils"
-	"code.cloudfoundry.org/goshims/osshim"
-	"code.cloudfoundry.org/lager"
-	"code.cloudfoundry.org/lager/lagerflags"
-	"code.cloudfoundry.org/service-broker-store/brokerstore"
-	vmo "code.cloudfoundry.org/volume-mount-options"
-	vmou "code.cloudfoundry.org/volume-mount-options/utils"
 	"crypto/tls"
 	"crypto/x509"
 	"errors"
 	"flag"
 	"fmt"
-	"github.com/pivotal-cf/brokerapi"
-	"github.com/tedsuo/ifrit"
-	"github.com/tedsuo/ifrit/grouper"
-	"github.com/tedsuo/ifrit/http_server"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
 	"time"
+
+	"code.cloudfoundry.org/clock"
+	"code.cloudfoundry.org/debugserver"
+	"code.cloudfoundry.org/existingvolumebroker"
+	"code.cloudfoundry.org/existingvolumebroker/utils"
+	"code.cloudfoundry.org/goshims/osshim"
+	"code.cloudfoundry.org/lager/v3"
+	"code.cloudfoundry.org/lager/v3/lagerflags"
+	"code.cloudfoundry.org/service-broker-store/brokerstore"
+	vmo "code.cloudfoundry.org/volume-mount-options"
+	vmou "code.cloudfoundry.org/volume-mount-options/utils"
+	"github.com/pivotal-cf/brokerapi/v9"
+	"github.com/tedsuo/ifrit"
+	"github.com/tedsuo/ifrit/grouper"
+	"github.com/tedsuo/ifrit/http_server"
 )
 
 var atAddress = flag.String(
@@ -108,7 +109,7 @@ func main() {
 
 func verifyCredhubIsReachable(logger lager.Logger) {
 	client := &http.Client{
-		Timeout:   30 * time.Second,
+		Timeout: 30 * time.Second,
 	}
 
 	configureCACert(logger, client)
@@ -149,7 +150,6 @@ func configureCACert(logger lager.Logger, client *http.Client) {
 		client.Transport = transport
 	}
 }
-
 
 func parseCommandLine() {
 	lagerflags.AddFlags(flag.CommandLine)

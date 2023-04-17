@@ -1,30 +1,26 @@
 package main
 
 import (
-	fuzz "github.com/google/gofuzz"
-	"github.com/onsi/ginkgo/extensions/table"
+	"encoding/json"
+	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
+	"os"
 	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 
-	"encoding/json"
-	"io/ioutil"
-
-	"fmt"
-
+	fuzz "github.com/google/gofuzz"
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
 	"github.com/onsi/gomega/gexec"
 	"github.com/onsi/gomega/ghttp"
-	"github.com/pivotal-cf/brokerapi"
+	"github.com/pivotal-cf/brokerapi/v9"
 	"github.com/tedsuo/ifrit"
-	"github.com/tedsuo/ifrit/ginkgomon"
-	"os"
-	"time"
-
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	ginkgomon "github.com/tedsuo/ifrit/ginkgomon_v2"
 )
 
 var _ = Describe("smbbroker Main", func() {
@@ -64,8 +60,8 @@ var _ = Describe("smbbroker Main", func() {
 		var volmanRunner *ginkgomon.Runner
 		var credhubServer *ghttp.Server
 
-		table.DescribeTable("should log a helpful diagnostic error message ", func(statusCode int) {
-			listenAddr := "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelNode())
+		DescribeTable("should log a helpful diagnostic error message ", func(statusCode int) {
+			listenAddr := "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelProcess())
 
 			credhubServer = ghttp.NewServer()
 			credhubServer.AppendHandlers(ghttp.CombineHandlers(
@@ -92,13 +88,13 @@ var _ = Describe("smbbroker Main", func() {
 			Eventually(volmanRunner.Buffer()).Should(gbytes.Say(fmt.Sprintf(".*Attempted to connect to credhub. Expected 200. Got %d.*X-Squid-Err:\\[some-error\\].*", statusCode)))
 
 		},
-			table.Entry("300", http.StatusMultipleChoices),
-			table.Entry("400", http.StatusBadRequest),
-			table.Entry("403", http.StatusForbidden),
-			table.Entry("500", http.StatusInternalServerError))
+			Entry("300", http.StatusMultipleChoices),
+			Entry("400", http.StatusBadRequest),
+			Entry("403", http.StatusForbidden),
+			Entry("500", http.StatusInternalServerError))
 
 		It("should timeout after 30 seconds", func() {
-			listenAddr := "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelNode())
+			listenAddr := "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelProcess())
 
 			hangForMoreThan30SecondsHandler := func(resp http.ResponseWriter, req *http.Request) {
 				time.Sleep(32 * time.Second)
@@ -145,7 +141,7 @@ var _ = Describe("smbbroker Main", func() {
 		)
 
 		BeforeEach(func() {
-			listenAddr = "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelNode())
+			listenAddr = "0.0.0.0:" + strconv.Itoa(8999+GinkgoParallelProcess())
 			username = "admin"
 			password = "password"
 
@@ -400,7 +396,7 @@ var _ = Describe("smbbroker Main", func() {
 			})
 
 			Context("versions", func() {
-				table.DescribeTable("valid versions", func(version string) {
+				DescribeTable("valid versions", func(version string) {
 					rawParametersMap := map[string]string{
 						"username": "user",
 						"version":  version,
@@ -423,10 +419,10 @@ var _ = Describe("smbbroker Main", func() {
 					Expect(resp.StatusCode).To(Equal(201))
 
 				},
-					table.Entry("version 1", "1.0"),
-					table.Entry("version 2", "2.0"),
-					table.Entry("version 2.1", "2.1"),
-					table.Entry("version 3", "3.0"),
+					Entry("version 1", "1.0"),
+					Entry("version 2", "2.0"),
+					Entry("version 2.1", "2.1"),
+					Entry("version 3", "3.0"),
 				)
 
 				Context("invalid version", func() {

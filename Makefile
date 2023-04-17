@@ -4,14 +4,7 @@ install:
 	go install -v
 
 test:
-	${MAKE} check_ginkgo || ${MAKE} install_ginkgo
-	GO111MODULE=on ginkgo -mod vendor -r -keepGoing -p -trace -randomizeAllSpecs -progress --race
-
-check_ginkgo:
-	ginkgo version
-
-install_ginkgo:
-	go install github.com/onsi/ginkgo/ginkgo@latest
+	go run github.com/onsi/ginkgo/v2/ginkgo -mod vendor -r --keep-going -p --trace --randomize-all --race
 
 fmt:
 	go fmt ./...
