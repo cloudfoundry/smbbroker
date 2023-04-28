@@ -11,7 +11,7 @@ require (
 	github.com/google/gofuzz v1.2.0
 	github.com/onsi/ginkgo/v2 v2.9.2
 	github.com/onsi/gomega v1.27.6
-	github.com/pivotal-cf/brokerapi/v9 v9.0.0
+	github.com/pivotal-cf/brokerapi/v9 v9.0.1
 	github.com/tedsuo/ifrit v0.0.0-20230330192023-5cba443a66c4
 )
 
