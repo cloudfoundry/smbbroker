@@ -41,7 +41,7 @@ github.com/cloudfoundry/go-socks5
 # github.com/cloudfoundry/socks5-proxy v0.2.87
 ## explicit; go 1.20
 github.com/cloudfoundry/socks5-proxy
-# github.com/go-logr/logr v1.2.3
+# github.com/go-logr/logr v1.2.4
 ## explicit; go 1.16
 github.com/go-logr/logr
 github.com/go-logr/logr/funcr
@@ -74,7 +74,7 @@ github.com/gorilla/mux
 # github.com/hashicorp/go-version v1.6.0
 ## explicit
 github.com/hashicorp/go-version
-# github.com/onsi/ginkgo/v2 v2.9.2
+# github.com/onsi/ginkgo/v2 v2.9.3
 ## explicit; go 1.18
 github.com/onsi/ginkgo/v2
 github.com/onsi/ginkgo/v2/config
