@@ -7,7 +7,7 @@ require (
 	code.cloudfoundry.org/goshims v0.29.0
 	code.cloudfoundry.org/lager/v3 v3.0.3
 	code.cloudfoundry.org/service-broker-store v0.73.0
-	code.cloudfoundry.org/volume-mount-options v0.77.0
+	code.cloudfoundry.org/volume-mount-options v0.78.0
 	github.com/google/gofuzz v1.2.0
 	github.com/onsi/ginkgo/v2 v2.14.0
 	github.com/onsi/gomega v1.30.0
