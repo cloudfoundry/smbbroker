@@ -6,7 +6,7 @@ require (
 	code.cloudfoundry.org/existingvolumebroker v0.124.0
 	code.cloudfoundry.org/goshims v0.29.0
 	code.cloudfoundry.org/lager/v3 v3.0.3
-	code.cloudfoundry.org/service-broker-store v0.72.0
+	code.cloudfoundry.org/service-broker-store v0.73.0
 	code.cloudfoundry.org/volume-mount-options v0.77.0
 	github.com/google/gofuzz v1.2.0
 	github.com/onsi/ginkgo/v2 v2.14.0
@@ -34,7 +34,7 @@ require (
 	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	golang.org/x/tools v0.16.1 // indirect
+	golang.org/x/tools v0.17.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
