@@ -8,6 +8,6 @@ import (
 
 var _ = Describe("Config", func() {
 	It("should return the correct allowed options", func() {
-		Expect(AllowedOptions()).To(Equal("source,mount,ro,username,password,domain,version,mfsymlinks,noserverino,forceuid,noforceuid,forcegid,noforcegid"))
+		Expect(AllowedOptions()).To(Equal("source,mount,ro,username,password,domain,version,mfsymlinks,noserverino,forceuid,noforceuid,forcegid,noforcegid,nodfs"))
 	})
 })
