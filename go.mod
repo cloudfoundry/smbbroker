@@ -3,7 +3,7 @@ module code.cloudfoundry.org/smbbroker
 require (
 	code.cloudfoundry.org/clock v1.1.0
 	code.cloudfoundry.org/debugserver v0.0.0-20240412143000-e1e6490a72a0
-	code.cloudfoundry.org/existingvolumebroker v0.135.0
+	code.cloudfoundry.org/existingvolumebroker v0.136.0
 	code.cloudfoundry.org/goshims v0.34.0
 	code.cloudfoundry.org/lager/v3 v3.0.3
 	code.cloudfoundry.org/service-broker-store v0.83.0
