@@ -598,8 +598,8 @@ code.cloudfoundry.org/credhub-cli v0.0.0-20240408130546-41a93a2e6319 h1:br9t/arp
 code.cloudfoundry.org/credhub-cli v0.0.0-20240408130546-41a93a2e6319/go.mod h1:YR9+RYOIkumBDCDCDZzwnjQvPgtcAU8vfVrWvewByG4=
 code.cloudfoundry.org/debugserver v0.0.0-20240418163436-96a22b512925 h1:qFvE0WNwAHwSFM364vKGAqpprO5pSiQEZg+K/zDDxyo=
 code.cloudfoundry.org/debugserver v0.0.0-20240418163436-96a22b512925/go.mod h1:y6ko2OqN7F8JygToAhfQwzGARclk/vFG7VAhx5xcDlc=
-code.cloudfoundry.org/existingvolumebroker v0.137.0 h1:CUvlGd6k810pcSkSgqm2r5fxo64vCtCLCYdPHfhcszg=
-code.cloudfoundry.org/existingvolumebroker v0.137.0/go.mod h1:msYiKd/rSYPehi22a4mmmO7QKJCfa3MeQhLRKk3T9uk=
+code.cloudfoundry.org/existingvolumebroker v0.138.0 h1:Ai+v441DFM6F4groBKDk6blm1YygHVfVfCrbbdgLSSo=
+code.cloudfoundry.org/existingvolumebroker v0.138.0/go.mod h1:d5mvpwMuaG11HfRn9QwkvN734wI5DBMe3s1QiC8VHC8=
 code.cloudfoundry.org/goshims v0.34.0 h1:R0t2MLPOrcqVLO8JrKSvEtE9P7t5caF5MaLrb1i4xGk=
 code.cloudfoundry.org/goshims v0.34.0/go.mod h1:yUG2P9BnyBLJICLuH5bdDDPiRcPkhZDpUmxkrecBvdU=
 code.cloudfoundry.org/lager/v3 v3.0.3 h1:/UTmadZfIaKuT/whEinSxK1mzRfNu1uPfvjFfGqiwzM=
@@ -899,8 +899,6 @@ github.com/phpdave11/gofpdf v1.4.2/go.mod h1:zpO6xFn9yxo3YLyMvW8HcKWVdbNqgIfOOp2
 github.com/phpdave11/gofpdi v1.0.12/go.mod h1:vBmVV0Do6hSBHC8uKUQ71JGW+ZGQq74llk/7bXwjDoI=
 github.com/phpdave11/gofpdi v1.0.13/go.mod h1:vBmVV0Do6hSBHC8uKUQ71JGW+ZGQq74llk/7bXwjDoI=
 github.com/pierrec/lz4/v4 v4.1.15/go.mod h1:gZWDp/Ze/IJXGXf23ltt2EXimqmTUXEy0GFuRQyBid4=
-github.com/pivotal-cf/brokerapi/v10 v10.2.0 h1:cdXk5FMkxuBONiaPS+H9aIu0v5aSYv4qvo5keBcUTGA=
-github.com/pivotal-cf/brokerapi/v10 v10.2.0/go.mod h1:UEwbfVgaY8FpQ3NOfjoVRPLW/Ar0c7uYQP5TJj3r3OE=
 github.com/pivotal-cf/brokerapi/v11 v11.0.0 h1:FxIrKdrFNAUyX8NAgPpdkJjwQ0vHmjbaPoxTPcAvcmY=
 github.com/pivotal-cf/brokerapi/v11 v11.0.0/go.mod h1:MY40lQBKIChtmOpTVluTOyKQ9bW9p5fDszvXOEViIBQ=
 github.com/pkg/diff v0.0.0-20210226163009-20ebb0f2a09e/go.mod h1:pJLUxLENpZxwdsKMEsNbx1VGcRFpLqf3715MtcvvzbA=

@@ -14,7 +14,7 @@ code.cloudfoundry.org/credhub-cli/credhub/server
 # code.cloudfoundry.org/debugserver v0.0.0-20240418163436-96a22b512925
 ## explicit; go 1.19
 code.cloudfoundry.org/debugserver
-# code.cloudfoundry.org/existingvolumebroker v0.137.0
+# code.cloudfoundry.org/existingvolumebroker v0.138.0
 ## explicit; go 1.22.2
 code.cloudfoundry.org/existingvolumebroker
 code.cloudfoundry.org/existingvolumebroker/utils
@@ -114,15 +114,6 @@ github.com/openzipkin/zipkin-go/model
 # github.com/pborman/uuid v1.2.1
 ## explicit
 github.com/pborman/uuid
-# github.com/pivotal-cf/brokerapi/v10 v10.2.0
-## explicit; go 1.20
-github.com/pivotal-cf/brokerapi/v10
-github.com/pivotal-cf/brokerapi/v10/auth
-github.com/pivotal-cf/brokerapi/v10/domain
-github.com/pivotal-cf/brokerapi/v10/domain/apiresponses
-github.com/pivotal-cf/brokerapi/v10/handlers
-github.com/pivotal-cf/brokerapi/v10/middlewares
-github.com/pivotal-cf/brokerapi/v10/utils
 # github.com/pivotal-cf/brokerapi/v11 v11.0.0
 ## explicit; go 1.21
 github.com/pivotal-cf/brokerapi/v11
