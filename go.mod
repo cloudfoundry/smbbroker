@@ -2,7 +2,7 @@ module code.cloudfoundry.org/smbbroker
 
 require (
 	code.cloudfoundry.org/clock v1.1.0
-	code.cloudfoundry.org/debugserver v0.0.0-20240412143000-e1e6490a72a0
+	code.cloudfoundry.org/debugserver v0.0.0-20240418163436-96a22b512925
 	code.cloudfoundry.org/existingvolumebroker v0.136.0
 	code.cloudfoundry.org/goshims v0.34.0
 	code.cloudfoundry.org/lager/v3 v3.0.3
@@ -23,7 +23,7 @@ require (
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
-	github.com/google/pprof v0.0.0-20240409012703-83162a5b38cd // indirect
+	github.com/google/pprof v0.0.0-20240416155748-26353dc0451f // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-version v1.6.0 // indirect
 	github.com/openzipkin/zipkin-go v0.4.2 // indirect
