@@ -6,7 +6,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"log/slog"
 	"net/http"
 	"os"
 	"strings"
@@ -22,7 +22,7 @@ import (
 	"code.cloudfoundry.org/service-broker-store/brokerstore"
 	vmo "code.cloudfoundry.org/volume-mount-options"
 	vmou "code.cloudfoundry.org/volume-mount-options/utils"
-	"github.com/pivotal-cf/brokerapi/v10"
+	"github.com/pivotal-cf/brokerapi/v11"
 	"github.com/tedsuo/ifrit"
 	"github.com/tedsuo/ifrit/grouper"
 	"github.com/tedsuo/ifrit/http_server"
@@ -128,7 +128,7 @@ func configureCACert(logger lager.Logger, client *http.Client) {
 	if *credhubCACertPath != "" {
 		certpool := x509.NewCertPool()
 
-		certPEM, err := ioutil.ReadFile(*credhubCACertPath)
+		certPEM, err := os.ReadFile(*credhubCACertPath)
 		if err != nil {
 			logger.Fatal("reading credhub ca cert path", err)
 		}
@@ -194,7 +194,7 @@ func newLogger() (lager.Logger, *lager.ReconfigurableSink) {
 func createServer(logger lager.Logger) ifrit.Runner {
 	var credhubCACert string
 	if *credhubCACertPath != "" {
-		b, err := ioutil.ReadFile(*credhubCACertPath)
+		b, err := os.ReadFile(*credhubCACertPath)
 		if err != nil {
 			logger.Fatal("cannot-read-credhub-ca-cert", err, lager.Data{"path": *credhubCACertPath})
 		}
@@ -203,7 +203,7 @@ func createServer(logger lager.Logger) ifrit.Runner {
 
 	var uaaCACert string
 	if *uaaCACertPath != "" {
-		b, err := ioutil.ReadFile(*uaaCACertPath)
+		b, err := os.ReadFile(*uaaCACertPath)
 		if err != nil {
 			logger.Fatal("cannot-read-credhub-ca-cert", err, lager.Data{"path": *uaaCACertPath})
 		}
@@ -256,7 +256,7 @@ func createServer(logger lager.Logger) ifrit.Runner {
 	)
 
 	credentials := brokerapi.BrokerCredentials{Username: username, Password: password}
-	handler := brokerapi.New(serviceBroker, logger.Session("broker-api"), credentials)
+	handler := brokerapi.New(serviceBroker, slog.New(lager.NewHandler(lager.NewLogger("broker-api"))), credentials)
 
 	return http_server.New(*atAddress, handler)
 }

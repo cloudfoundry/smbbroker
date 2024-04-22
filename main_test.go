@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"os/exec"
@@ -18,7 +17,8 @@ import (
 	"github.com/onsi/gomega/gbytes"
 	"github.com/onsi/gomega/gexec"
 	"github.com/onsi/gomega/ghttp"
-	"github.com/pivotal-cf/brokerapi/v10"
+	"github.com/pivotal-cf/brokerapi/v11/domain"
+	"github.com/pivotal-cf/brokerapi/v11/domain/apiresponses"
 	"github.com/tedsuo/ifrit"
 	ginkgomon "github.com/tedsuo/ifrit/ginkgomon_v2"
 )
@@ -212,10 +212,10 @@ var _ = Describe("smbbroker Main", func() {
 			Expect(err).NotTo(HaveOccurred())
 			Expect(resp.StatusCode).To(Equal(200))
 
-			bytes, err := ioutil.ReadAll(resp.Body)
+			bytes, err := io.ReadAll(resp.Body)
 			Expect(err).NotTo(HaveOccurred())
 
-			var catalog brokerapi.CatalogResponse
+			var catalog apiresponses.CatalogResponse
 			err = json.Unmarshal(bytes, &catalog)
 			Expect(err).NotTo(HaveOccurred())
 
@@ -262,7 +262,7 @@ var _ = Describe("smbbroker Main", func() {
 			})
 
 			It("should respond with 200", func() {
-				provisionDetailsJsons, err := json.Marshal(brokerapi.ProvisionDetails{
+				provisionDetailsJsons, err := json.Marshal(domain.ProvisionDetails{
 					ServiceID:     serviceOfferingID,
 					PlanID:        planID,
 					RawParameters: json.RawMessage(`{"share": "sharevalue", "version": "1.0"}`),
@@ -333,7 +333,7 @@ var _ = Describe("smbbroker Main", func() {
 
 					rawParameters, err := json.Marshal(rawParametersMap)
 					Expect(err).NotTo(HaveOccurred())
-					provisionDetailsJsons, err := json.Marshal(brokerapi.BindDetails{
+					provisionDetailsJsons, err := json.Marshal(domain.BindDetails{
 						ServiceID:     serviceOfferingID,
 						PlanID:        planID,
 						AppGUID:       "222",
@@ -366,7 +366,7 @@ var _ = Describe("smbbroker Main", func() {
 					rawParameters, err := json.Marshal(rawParametersMap)
 					Expect(err).NotTo(HaveOccurred())
 
-					bindDetailJson, err = json.Marshal(brokerapi.BindDetails{
+					bindDetailJson, err = json.Marshal(domain.BindDetails{
 						ServiceID:     serviceOfferingID,
 						PlanID:        planID,
 						AppGUID:       "222",
@@ -390,7 +390,7 @@ var _ = Describe("smbbroker Main", func() {
 					expectedJsonResponse, err := json.Marshal(expectedResponse)
 					Expect(err).NotTo(HaveOccurred())
 
-					responseBody, err := ioutil.ReadAll(resp.Body)
+					responseBody, err := io.ReadAll(resp.Body)
 					Expect(string(responseBody)).To(MatchJSON(expectedJsonResponse))
 				})
 			})
@@ -404,7 +404,7 @@ var _ = Describe("smbbroker Main", func() {
 
 					rawParameters, err := json.Marshal(rawParametersMap)
 					Expect(err).NotTo(HaveOccurred())
-					provisionDetailsJsons, err := json.Marshal(brokerapi.BindDetails{
+					provisionDetailsJsons, err := json.Marshal(domain.BindDetails{
 						ServiceID:     serviceOfferingID,
 						PlanID:        planID,
 						AppGUID:       "222",
@@ -442,7 +442,7 @@ var _ = Describe("smbbroker Main", func() {
 						rawParameters, err := json.Marshal(rawParametersMap)
 						Expect(err).NotTo(HaveOccurred())
 
-						bindDetailJson, err = json.Marshal(brokerapi.BindDetails{
+						bindDetailJson, err = json.Marshal(domain.BindDetails{
 							ServiceID:     serviceOfferingID,
 							PlanID:        planID,
 							AppGUID:       "222",
@@ -466,7 +466,7 @@ var _ = Describe("smbbroker Main", func() {
 						expectedJsonResponse, err := json.Marshal(expectedResponse)
 						Expect(err).NotTo(HaveOccurred())
 
-						responseBody, err := ioutil.ReadAll(resp.Body)
+						responseBody, err := io.ReadAll(resp.Body)
 						Expect(string(responseBody)).To(MatchJSON(expectedJsonResponse))
 					})
 				})
@@ -475,7 +475,7 @@ var _ = Describe("smbbroker Main", func() {
 
 		Context("#update", func() {
 			It("should respond with a 422", func() {
-				updateDetailsJson, err := json.Marshal(brokerapi.UpdateDetails{
+				updateDetailsJson, err := json.Marshal(domain.UpdateDetails{
 					ServiceID: serviceOfferingID,
 				})
 				Expect(err).NotTo(HaveOccurred())
@@ -484,7 +484,7 @@ var _ = Describe("smbbroker Main", func() {
 				Expect(err).NotTo(HaveOccurred())
 				Expect(resp.StatusCode).To(Equal(422))
 
-				responseBody, err := ioutil.ReadAll(resp.Body)
+				responseBody, err := io.ReadAll(resp.Body)
 				Expect(err).NotTo(HaveOccurred())
 				Expect(string(responseBody)).To(ContainSubstring("This service does not support instance updates. Please delete your service instance and create a new one with updated configuration."))
 			})
@@ -588,4 +588,3 @@ type failRunner struct {
 	session           *gexec.Session
 	sessionReady      chan struct{}
 }
-
