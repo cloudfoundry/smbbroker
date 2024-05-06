@@ -14,7 +14,7 @@ code.cloudfoundry.org/credhub-cli/credhub/server
 # code.cloudfoundry.org/debugserver v0.0.0-20240504164949-ec4d5482b504
 ## explicit; go 1.19
 code.cloudfoundry.org/debugserver
-# code.cloudfoundry.org/existingvolumebroker v0.138.0
+# code.cloudfoundry.org/existingvolumebroker v0.139.0
 ## explicit; go 1.22.2
 code.cloudfoundry.org/existingvolumebroker
 code.cloudfoundry.org/existingvolumebroker/utils
