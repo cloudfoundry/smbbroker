@@ -6,7 +6,7 @@ require (
 	code.cloudfoundry.org/existingvolumebroker v0.139.0
 	code.cloudfoundry.org/goshims v0.35.0
 	code.cloudfoundry.org/lager/v3 v3.0.3
-	code.cloudfoundry.org/service-broker-store v0.86.0
+	code.cloudfoundry.org/service-broker-store v0.87.0
 	code.cloudfoundry.org/volume-mount-options v0.87.0
 	github.com/google/gofuzz v1.2.0
 	github.com/onsi/ginkgo/v2 v2.17.3
@@ -16,7 +16,7 @@ require (
 )
 
 require (
-	code.cloudfoundry.org/credhub-cli v0.0.0-20240422130708-a7f1bfa10430 // indirect
+	code.cloudfoundry.org/credhub-cli v0.0.0-20240429130629-19663e8d3d05 // indirect
 	github.com/cloudfoundry/go-socks5 v0.0.0-20180221174514-54f73bdb8a8e // indirect
 	github.com/cloudfoundry/socks5-proxy v0.2.116 // indirect
 	github.com/go-chi/chi/v5 v5.0.12 // indirect
