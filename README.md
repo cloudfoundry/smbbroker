@@ -1,4 +1,4 @@
-# smbbroker
-A Cloud Foundry service broker for existing SMB shares.
+# Archived
 
-For details on how to use this broker, please refer to the [smb-volume-release README](https://github.com/cloudfoundry/smb-volume-release)
+The code for this repo now lives under code.cloudfoundry.org/smb-volume-release
+
